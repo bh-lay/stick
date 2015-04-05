@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+</head>
+<body>
+<div id="container"></div>
+<script type="text/javascript">
+function loadMore(){
+  setTimeout(function(){
+    list = [
+      {},{},{},{},{},{},{},{}
+    ];
+    list.forEach(function(item) {
+      stick.addItem($(html), item.cover);
+    });
+  },200);
+}
+var stick = new Stick({
+    container: document.getElementById,
+    column_width: 300,
+    column_gap: 10,
+    onNeedMore: function() {
+        loadMore();
+    }
+});
+</script>
+</body>
+</html>
