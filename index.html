@@ -3,28 +3,52 @@
 <head>
   <meta charset="UTF-8">
   <title>Document</title>
+<style type="text/css">
+  body{
+    margin: 0;
+    padding: 0;
+    background:#333;
+  }
+  #container{
+    position: relative;
+    width: 90%;
+    margin: 40px auto;
+  }
+  .item{
+    background:#fff;
+  }
+</style>
 </head>
 <body>
 <div id="container"></div>
+<script type="text/javascript" src="src/stick.js"></script>
 <script type="text/javascript">
+/** 模拟ajax加载，提供假数据 **/
+var loadTime = 0;
 function loadMore(){
+  if(++loadTime >= 10){
+    return
+  }
   setTimeout(function(){
     list = [
+      {},{},{},{},{},{},{},{},
       {},{},{},{},{},{},{},{}
     ];
     list.forEach(function(item) {
-      stick.addItem($(html), item.cover);
+      var html= '<div class="item" style="height:' + Math.floor(Math.random() * 250 + 150) + 'px">';
+      stick.addItem(html, item.cover);
     });
-  },200);
+  },300);
 }
+
+//定义瀑布流组件
 var stick = new Stick({
-    container: document.getElementById,
-    column_width: 300,
-    column_gap: 10,
-    onNeedMore: function() {
-        loadMore();
-    }
+  container: document.getElementById('container'),
+  column_width: 200,
+  column_gap: 10,
+  onNeedMore: loadMore
 });
+loadMore();
 </script>
 </body>
 </html>
