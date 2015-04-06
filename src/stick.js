@@ -3,7 +3,7 @@
   //exports for commonJS
   global.Stick = global.Stick || Stick;
   global.define && define(function(require,exports){
-      return Stick;
+    return Stick;
   });
 })(window,document,function(window,document){
   /**
@@ -161,7 +161,6 @@
       this.last_row = [];
       this.column_num = Math.floor((width+this.column_gap)/(this.column_width_base+this.column_gap));
       this.column_width = (width + this.column_gap)/this.column_num - this.column_gap;
-      console.log(width);
     },
     fixPosition: function(item){
       if(this.column_num > 1){
@@ -177,7 +176,6 @@
           column_index = this.last_row.indexOf(top);
           top = top + this.column_gap;
         }
-        this.list.push(item);
         setCss(item,{
           position : 'absolute',
           top: top,
@@ -198,6 +196,7 @@
           width: 'auto'
         });
       }
+      this.list.push(item);
     },
     addItem: function(item,cover){
       var me = this;
