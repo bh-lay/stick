@@ -3,7 +3,7 @@
  * 
  * @github: https://github.com/bh-lay/stick
  * 
- * @modified 2015-04-07 21:51
+ * @modified 2015-04-11 00:23
  *  
  */
 (function(global,doc,factory){
@@ -119,7 +119,6 @@
     img.src=src;
   }
   
-  
   /**
    * Stick
    */
@@ -215,6 +214,9 @@
         me.container.appendChild(item);
         me.fixPosition(item);
       });
+    },
+    addList: function(list){
+      //
     },
     destroy: function(){
       unbind(document,'scroll',this.scrollListener);
