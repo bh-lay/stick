@@ -120,6 +120,13 @@
   }
   
   /**
+   * 获取浏览器滚动尺寸
+   *  为了兼容firefox
+   */
+  function getScrollTop(){
+    return Math.max(document.documentElement.scrollTop, document.body.scrollTop);
+  }
+  /**
    * Stick
    */
   function Stick(param){
@@ -140,7 +147,7 @@
         last_time = 0;
     this.scrollListener = function(){
       var now = new Date().getTime();
-      if(now - last_time > 500 && (document.body.scrollTop + window.innerHeight >= document.body.scrollHeight - 300)){
+      if(now - last_time > 500 && (getScrollTop() + window.innerHeight >= document.body.scrollHeight - 300)){
         me.onNeedMore && me.onNeedMore();
         last_time = now;
       }
