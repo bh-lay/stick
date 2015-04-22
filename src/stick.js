@@ -3,7 +3,7 @@
  * 
  * @github: https://github.com/bh-lay/stick
  * 
- * @modified 2015-04-11 00:23
+ * @modified 2015-04-22 16:42
  *  
  */
 (function(global,doc,factory){
