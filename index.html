@@ -18,16 +18,21 @@
     margin-bottom: 20px;
     background:#fff;
   }
+  .footer{
+    height: 200px;
+    background: #555;
+  }
 </style>
 </head>
 <body>
 <div id="container"></div>
+<div class="footer"></div>
 <script type="text/javascript" src="src/stick.js"></script>
 <script type="text/javascript">
 /** 模拟ajax加载，提供假数据 **/
 var loadTime = 0;
 function loadMore(){
-  if(++loadTime >= 10){
+  if(++loadTime >= 5){
     return
   }
   setTimeout(function(){
