@@ -29,12 +29,28 @@
 <div class="footer"></div>
 <script type="text/javascript" src="src/stick.js"></script>
 <script type="text/javascript">
-/** 模拟ajax加载，提供假数据 **/
+
+//定义瀑布流组件
+var stick = new Stick({
+  container: document.getElementById('container'),
+  column_width: 200,
+  column_gap: 10,
+  load_spacing: 200,
+  onNeedMore: loadMore
+});
+//加载第一页
+loadMore();
+
+/**
+ * 模拟ajax加载，提供假数据
+ **/
 var loadTime = 0;
 function loadMore(){
+  //模拟加载完毕
   if(++loadTime >= 5){
     return
   }
+  //模拟ajax延迟
   setTimeout(function(){
     list = [
       {},{},{},{},{},{},{},{},
@@ -46,15 +62,6 @@ function loadMore(){
     });
   },300);
 }
-
-//定义瀑布流组件
-var stick = new Stick({
-  container: document.getElementById('container'),
-  column_width: 200,
-  column_gap: 10,
-  onNeedMore: loadMore
-});
-loadMore();
 </script>
 </body>
 </html>
